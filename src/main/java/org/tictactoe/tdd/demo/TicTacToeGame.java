@@ -5,7 +5,7 @@ public class TicTacToeGame {
 	private static final int GAME_BOARD_SIZE = 3;
 	private static final char MOVE_X = 'X';
 	private static final String PLAYER_X = "Player_X";
-	private static final String PLAYER_Y = "Player_Y";
+	private static final String PLAYER_O = "Player_O";
 	
 	
 	private char[][] gameBoard = new char[GAME_BOARD_SIZE][GAME_BOARD_SIZE];
@@ -25,7 +25,7 @@ public class TicTacToeGame {
 		if (identifyMoveAt(row, column) == MOVE_X)
 			player = PLAYER_X;
 		else {
-			player = PLAYER_Y;
+			player = PLAYER_O;
 		}
 		return player;
 	}
