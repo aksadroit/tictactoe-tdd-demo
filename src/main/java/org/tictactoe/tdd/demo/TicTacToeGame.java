@@ -4,6 +4,7 @@ public class TicTacToeGame {
 
 	private static final int GAME_BOARD_SIZE = 3;
 	private static final char MOVE_X = 'X';
+	private static final char MOVE_O = 'O';
 	private static final String PLAYER_X = "Player_X";
 	private static final String PLAYER_O = "Player_O";
 	
@@ -38,10 +39,10 @@ public class TicTacToeGame {
 	
 	private char getNextMove() {
 		char nextMove;
-		if (currentMove == 'X') {
-			nextMove = 'O';
+		if (currentMove == MOVE_X) {
+			nextMove = MOVE_O;
 		} else {
-			nextMove = 'X';
+			nextMove = MOVE_X;
 		}
 		return nextMove;
 	}
