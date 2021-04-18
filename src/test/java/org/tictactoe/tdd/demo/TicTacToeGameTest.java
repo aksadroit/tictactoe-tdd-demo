@@ -29,5 +29,11 @@ public class TicTacToeGameTest {
 		game.makeMoveAt(POS_1, POS_1, MOVE_X);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 	}
+	
+	@Test
+	public void markFirstMoveMadeByPlayerAsX() {
+		game.play(POS_1, POS_1);
+		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
+	}
 
 }

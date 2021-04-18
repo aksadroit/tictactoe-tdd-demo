@@ -29,5 +29,9 @@ public class TicTacToeGame {
 		}
 		return player;
 	}
+
+	public void play(int row, int column) {
+		makeMoveAt(row, column, MOVE_X);
+	}
 	
 }
