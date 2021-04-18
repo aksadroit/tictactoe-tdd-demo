@@ -7,9 +7,12 @@ import org.junit.jupiter.api.Test;
 
 public class TicTacToeGameTest {
 	
+	private static final int POS_0 = 0;
 	private static final int POS_1 = 1;
+	private static final int POS_2 = 2;
 	private static final char MOVE_X = 'X';
 	private static final String PLAYER_X = "Player_X";
+	private static final String PLAYER_O = "Player_O";
 	
 	private TicTacToeGame game;
 	
@@ -41,8 +44,8 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 		
-		game.play(0, 2);
-		assertEquals("Player_O", game.identifyPlayerForGivenLocation(0, 2));
+		game.play(POS_0, POS_2);
+		assertEquals(PLAYER_O, game.identifyPlayerForGivenLocation(POS_0, POS_2));
 	}
 
 }
