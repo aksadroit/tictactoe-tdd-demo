@@ -35,5 +35,14 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 	}
+	
+	@Test
+	public void alternativelySwitchBetweenPlayersWhenPlaying() {
+		game.play(POS_1, POS_1);
+		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
+		
+		game.play(0, 2);
+		assertEquals("Player_O", game.identifyPlayerForGivenLocation(0, 2));
+	}
 
 }

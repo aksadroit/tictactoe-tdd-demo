@@ -9,6 +9,7 @@ public class TicTacToeGame {
 	
 	
 	private char[][] gameBoard = new char[GAME_BOARD_SIZE][GAME_BOARD_SIZE];
+	private char currentMove;
 	
 	
 	public void makeMoveAt(int row, int column, char playerMove) {
@@ -31,7 +32,18 @@ public class TicTacToeGame {
 	}
 
 	public void play(int row, int column) {
-		makeMoveAt(row, column, MOVE_X);
+		currentMove = getNextMove();
+		makeMoveAt(row, column, currentMove);
+	}
+	
+	private char getNextMove() {
+		char nextMove;
+		if (currentMove == 'X') {
+			nextMove = 'O';
+		} else {
+			nextMove = 'X';
+		}
+		return nextMove;
 	}
 	
 }
