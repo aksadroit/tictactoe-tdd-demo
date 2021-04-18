@@ -11,5 +11,16 @@ public class TicTacToeGame {
 	public char identifyMoveAt(int row, int column) {
 		return gameBoard[row][column];
 	}
+
+	public String identifyPlayerForGivenLocation(int i, int j) {
+		String player;
+		
+		if (identifyMoveAt(i, j) == 'X')
+			player = "Player_X";
+		else {
+			player = "Player_O";
+		}
+		return player;
+	}
 	
 }

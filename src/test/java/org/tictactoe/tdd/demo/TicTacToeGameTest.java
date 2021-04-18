@@ -12,5 +12,12 @@ public class TicTacToeGameTest {
 		game.makeMoveAt(1, 1, 'X');
 		assertEquals('X', game.identifyMoveAt(1, 1));
 	}
+	
+	@Test
+	public void indentifyPlayerByObservingMoveAtAnyGivenLocation() {
+		TicTacToeGame game = new TicTacToeGame();
+		game.makeMoveAt(1, 1, 'X');
+		assertEquals("Player_X", game.identifyPlayerForGivenLocation(1, 1));
+	}
 
 }
