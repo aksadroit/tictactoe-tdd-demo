@@ -1,5 +1,7 @@
 package org.tictactoe.tdd.demo;
 
+import org.tictactoe.tdd.exception.PositionAlreadyOccupiedException;
+
 public class TicTacToeGame {
 
 	private static final int GAME_BOARD_SIZE = 3;
@@ -33,9 +35,14 @@ public class TicTacToeGame {
 		return player;
 	}
 
-	public void play(int row, int column) {
-		currentMove = getNextMove();
-		makeMoveAt(row, column, currentMove);
+	public void play(int row, int column) throws PositionAlreadyOccupiedException {
+		if (isPositionAvailableToPlay(row, column)) {
+			currentMove = getNextMove();
+			makeMoveAt(row, column, currentMove);
+		} else {
+			throw new PositionAlreadyOccupiedException("");
+		}
+		
 	}
 	
 	private char getNextMove() {

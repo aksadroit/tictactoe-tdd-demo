@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.tictactoe.tdd.exception.PositionAlreadyOccupiedException;
 
 public class TicTacToeGameTest {
 	
@@ -34,13 +35,13 @@ public class TicTacToeGameTest {
 	}
 	
 	@Test
-	public void markFirstMoveMadeByPlayerAsX() {
+	public void markFirstMoveMadeByPlayerAsX() throws PositionAlreadyOccupiedException {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 	}
 	
 	@Test
-	public void alternativelySwitchBetweenPlayersWhenPlaying() {
+	public void alternativelySwitchBetweenPlayersWhenPlaying() throws PositionAlreadyOccupiedException {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 		
@@ -51,6 +52,12 @@ public class TicTacToeGameTest {
 	@Test
 	public void checkIfTheSelectedPositionOnBoardIsEmpty() {
 		assertTrue(game.isPositionAvailableToPlay(POS_1, POS_1));
+	}
+	
+	@Test
+	public void shouldThrowExceptionIfChoosenAlreadyOccupiedLocation() throws PositionAlreadyOccupiedException {
+		game.play(POS_1, POS_1);
+		assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
 	}
 
 }
