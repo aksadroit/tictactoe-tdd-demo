@@ -30,7 +30,7 @@ public class TicTacToeGame {
 			
 		currentMove = getNextMove();
 		makeMoveAt(row, column, currentMove);
-		if (isAnyRowOccupiedBySinglePlayer()) {
+		if (isAnyRowOccupiedBySinglePlayer() || isAnyColumnOccupiedBySinglePlayer()) {
 			result = "Winner is "+ identifyPlayerForGivenLocation(row, column);
 		}
 		return result;
