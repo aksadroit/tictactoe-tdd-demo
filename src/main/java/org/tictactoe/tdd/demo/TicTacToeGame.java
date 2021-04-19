@@ -71,7 +71,7 @@ public class TicTacToeGame {
 	}
 
 	public boolean isPositionAvailableToPlay(int row, int column) {
-		return gameBoard[row][column] == EMPTY;
+		return identifyMoveAt(row, column) == EMPTY;
 	}
 
 	public boolean isPositionWithinRange(int row, int column) {
@@ -117,7 +117,7 @@ public class TicTacToeGame {
 		boolean isAllPositionOccupied = true;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (identifyMoveAt(i, j) == EMPTY) {
+				if (isPositionAvailableToPlay(i, j)) {
 					isAllPositionOccupied = false;
 					break;
 				}
