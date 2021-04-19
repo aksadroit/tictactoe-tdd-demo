@@ -8,6 +8,11 @@ public class TicTacToeGame {
 	private static final int POSITION_LOWER_LIMIT = 0;
 	private static final int POSITION_UPPER_LIMIT = 2;
 	private static final int GAME_BOARD_SIZE = 3;
+	
+	private static final int POS_0 = 0;
+	private static final int POS_1 = 1;
+	private static final int POS_2 = 2;
+	
 	private static final char MOVE_X = 'X';
 	private static final char MOVE_O = 'O';
 	private static final char EMPTY = '\0';
@@ -76,7 +81,7 @@ public class TicTacToeGame {
 	public boolean checkIfAnyRowOccupiedBySinglePlayer() {
 		boolean isOccupied = false;
 		for (int i = 0; i < 3; i++) {
-			if (identifyMoveAt(i, 0) != EMPTY && identifyMoveAt(i, 0) == identifyMoveAt(i, 1) && identifyMoveAt(i, 1) == identifyMoveAt(i, 2)) {
+			if (identifyMoveAt(i, POS_0) != EMPTY && identifyMoveAt(i, POS_0) == identifyMoveAt(i, POS_1) && identifyMoveAt(i, POS_1) == identifyMoveAt(i, POS_2)) {
 				isOccupied = true;
 				break;
 			}
