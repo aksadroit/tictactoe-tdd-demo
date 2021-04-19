@@ -89,5 +89,16 @@ public class TicTacToeGame {
 		return isOccupied;
 		
 	}
+
+	public boolean checkIfAnyColumnOccupiedBySinglePlayer() {
+		boolean isOccupied = false;
+		for (int i = 0; i < 3; i++) {
+			if (identifyMoveAt(POS_0, i) != EMPTY && identifyMoveAt(POS_0, i) == identifyMoveAt(POS_1, i) && identifyMoveAt(POS_1, i) == identifyMoveAt(POS_2, i)) {
+				isOccupied = true;
+				break;
+			}
+		}
+		return isOccupied;
+	}
 	
 }

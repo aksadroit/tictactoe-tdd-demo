@@ -95,5 +95,15 @@ public class TicTacToeGameTest {
 		game.play(POS_0, POS_2);
 		assertTrue(game.checkIfAnyRowOccupiedBySinglePlayer());
 	}
+	
+	@Test
+	public void checkIfAnyColumnOfTheBoardIsOccupiedBySinglePlayer() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		game.play(POS_0, POS_0);
+		game.play(POS_1, POS_1);
+		game.play(POS_1, POS_0);
+		game.play(POS_2, POS_1);
+		game.play(POS_2, POS_0);
+		assertTrue(game.checkIfAnyColumnOccupiedBySinglePlayer());
+	}
 
 }
