@@ -46,5 +46,13 @@ public class TicTacToeGame {
 		}
 		return nextMove;
 	}
+
+	public boolean isPositionAvailableToPlay(int pos1, int pos12) {
+		boolean isAvailable = false;
+		if (gameBoard[pos1][pos12] == '\0') {
+			isAvailable = true;
+		}
+		return isAvailable;
+	}
 	
 }

@@ -47,5 +47,10 @@ public class TicTacToeGameTest {
 		game.play(POS_0, POS_2);
 		assertEquals(PLAYER_O, game.identifyPlayerForGivenLocation(POS_0, POS_2));
 	}
+	
+	@Test
+	public void checkIfTheSelectedPositionOnBoardIsEmpty() {
+		assertTrue(game.isPositionAvailableToPlay(POS_1, POS_1));
+	}
 
 }
