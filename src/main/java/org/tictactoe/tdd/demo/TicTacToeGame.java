@@ -38,7 +38,7 @@ public class TicTacToeGame {
 
 	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		if (!isPositionWithinRange(row, column)) {
-			throw new PositionOutOfRangeException("");
+			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of 0 and 2");
 		}
 		
 		if (isPositionAvailableToPlay(row, column)) {
