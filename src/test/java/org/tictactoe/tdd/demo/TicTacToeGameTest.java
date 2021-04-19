@@ -85,5 +85,15 @@ public class TicTacToeGameTest {
 		PositionOutOfRangeException exception = assertThrows(PositionOutOfRangeException.class, () -> game.play(POS_1, 3));
 		assertTrue(exception.getMessage().contains("Invalid Position..!!"));
 	}
+	
+	@Test
+	public void checkIfAnyRowOfTheBoardIsOccupiedBySinglePlayer() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		game.play(POS_0, POS_0);
+		game.play(POS_1, POS_1);
+		game.play(POS_0, POS_1);
+		game.play(POS_2, POS_1);
+		game.play(POS_0, POS_2);
+		assertTrue(game.checkIfAnyRowOccupiedBySinglePlayer());
+	}
 
 }

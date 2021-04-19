@@ -72,5 +72,17 @@ public class TicTacToeGame {
 	public boolean isPositionWithinRange(int row, int column) {
 		return (row >=POSITION_LOWER_LIMIT && row <= POSITION_UPPER_LIMIT && column >=POSITION_LOWER_LIMIT && column <= POSITION_UPPER_LIMIT);
 	}
+
+	public boolean checkIfAnyRowOccupiedBySinglePlayer() {
+		boolean isOccupied = false;
+		for (int i = 0; i < 3; i++) {
+			if (identifyMoveAt(i, 0) != EMPTY && identifyMoveAt(i, 0) == identifyMoveAt(i, 1) && identifyMoveAt(i, 1) == identifyMoveAt(i, 2)) {
+				isOccupied = true;
+				break;
+			}
+		}
+		return isOccupied;
+		
+	}
 	
 }
