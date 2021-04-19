@@ -106,6 +106,10 @@ public class TicTacToeGame {
 		if (identifyMoveAt(POS_0, POS_0) != EMPTY && identifyMoveAt(POS_0, POS_0) == identifyMoveAt(POS_1, POS_1) && identifyMoveAt(POS_1, POS_1) == identifyMoveAt(POS_2, POS_2)) {
 			isOccupied = true;
 		}
+		
+		if (!isOccupied && identifyMoveAt(POS_0, POS_2) != EMPTY && identifyMoveAt(POS_0, POS_2) == identifyMoveAt(POS_1, POS_1) && identifyMoveAt(POS_1, POS_1) == identifyMoveAt(POS_2, POS_0)) {
+			isOccupied = true;
+		}
 		return isOccupied;
 	}
 	
