@@ -24,12 +24,16 @@ public class TicTacToeGame {
 	private char currentMove;
 	
 	
-	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+	public String play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		String result = "Continue...";
 		isConditionsAreValidForPlay(row, column);
 			
 		currentMove = getNextMove();
 		makeMoveAt(row, column, currentMove);
-		
+		if (isAnyRowOccupiedBySinglePlayer()) {
+			result = "Winner is "+ identifyPlayerForGivenLocation(row, column);
+		}
+		return result;
 	}
 	
 	private void isConditionsAreValidForPlay(int row, int column) throws PositionOutOfRangeException, PositionAlreadyOccupiedException {

@@ -140,5 +140,14 @@ public class TicTacToeGameTest {
 		game.play(POS_2, POS_2);
 		assertTrue(game.areAllPositionsOccupied());
 	}
+	
+	@Test
+	public void declarePlayerAsWinnerIfRowIsOccupiedByHim() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		game.play(POS_0, POS_0);
+		game.play(POS_1, POS_1);
+		game.play(POS_0, POS_1);
+		game.play(POS_2, POS_1);
+		assertEquals("Winner is Player_X", game.play(POS_0, POS_2));
+	}
 
 }
