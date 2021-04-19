@@ -32,6 +32,8 @@ public class TicTacToeGame {
 		makeMoveAt(row, column, currentMove);
 		if (isAnyRowOccupiedBySinglePlayer() || isAnyColumnOccupiedBySinglePlayer() || isAnyDiagonalOccupiedBySinglePlayer()) {
 			result = "Winner is "+ identifyPlayerForGivenLocation(row, column);
+		} else if (areAllPositionsOccupied()) {
+			result = "Match Drawn";
 		}
 		return result;
 	}
