@@ -1,6 +1,8 @@
 package org.tictactoe.tdd.demo;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,6 +67,11 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		PositionAlreadyOccupiedException exceptionThrown = assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
 		assertTrue(exceptionThrown.getMessage().contains("(1, 1)"));
+	}
+	
+	@Test
+	public void checkIfTheProvidedPositionIsWithinRange() {
+		assertTrue(game.isPositionWithinRange(POS_1, POS_2));
 	}
 
 }
