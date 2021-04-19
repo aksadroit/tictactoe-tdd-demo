@@ -5,6 +5,8 @@ import org.tictactoe.tdd.exception.PositionOutOfRangeException;
 
 public class TicTacToeGame {
 
+	private static final int POSITION_LOWER_LIMIT = 0;
+	private static final int POSITION_UPPER_LIMIT = 2;
 	private static final int GAME_BOARD_SIZE = 3;
 	private static final char MOVE_X = 'X';
 	private static final char MOVE_O = 'O';
@@ -38,7 +40,7 @@ public class TicTacToeGame {
 
 	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		if (!isPositionWithinRange(row, column)) {
-			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of 0 and 2");
+			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of "+POSITION_LOWER_LIMIT+ " and "+ POSITION_UPPER_LIMIT);
 		}
 		
 		if (isPositionAvailableToPlay(row, column)) {
@@ -65,7 +67,7 @@ public class TicTacToeGame {
 	}
 
 	public boolean isPositionWithinRange(int row, int column) {
-		return (row >=0 && row <= 2 && column >=0 && column <= 2);
+		return (row >=POSITION_LOWER_LIMIT && row <= POSITION_UPPER_LIMIT && column >=POSITION_LOWER_LIMIT && column <= POSITION_UPPER_LIMIT);
 	}
 	
 }
