@@ -112,5 +112,21 @@ public class TicTacToeGame {
 		}
 		return isOccupied;
 	}
+
+	public boolean checkIfAllPositionsAreOccupied() {
+		boolean isAllPositionOccupied = true;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (identifyMoveAt(i, j) == EMPTY) {
+					isAllPositionOccupied = false;
+					break;
+				}
+			}
+			if (!isAllPositionOccupied) {
+				break;
+			}
+		}
+		return isAllPositionOccupied;
+	}
 	
 }

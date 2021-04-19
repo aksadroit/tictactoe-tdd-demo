@@ -126,5 +126,19 @@ public class TicTacToeGameTest {
 		game.play(POS_0, POS_2);
 		assertTrue(game.checkIfAnyDiagonalOccupiedBySinglePlayer());
 	}
+	
+	@Test
+	public void checkIfAllPositionsOnTheBoardAreOccupied() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		game.play(POS_0, POS_0);
+		game.play(POS_0, POS_1);
+		game.play(POS_0, POS_2);
+		game.play(POS_1, POS_1);
+		game.play(POS_1, POS_0);
+		game.play(POS_1, POS_2);
+		game.play(POS_2, POS_1);
+		game.play(POS_2, POS_0);
+		game.play(POS_2, POS_2);
+		assertTrue(game.checkIfAllPositionsAreOccupied());
+	}
 
 }
