@@ -40,7 +40,7 @@ public class TicTacToeGame {
 			currentMove = getNextMove();
 			makeMoveAt(row, column, currentMove);
 		} else {
-			throw new PositionAlreadyOccupiedException("");
+			throw new PositionAlreadyOccupiedException("Position ("+row+", "+column+") is already occupied. Please choose a different position");
 		}
 		
 	}

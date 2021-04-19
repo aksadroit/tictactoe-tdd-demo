@@ -59,5 +59,12 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
 	}
+	
+	@Test
+	public void checkExceptionMessageIfPositionAlreadyOccupied() throws PositionAlreadyOccupiedException {
+		game.play(POS_1, POS_1);
+		PositionAlreadyOccupiedException exceptionThrown = assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
+		assertTrue(exceptionThrown.getMessage().contains("(1, 1)"));
+	}
 
 }
