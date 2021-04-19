@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.tictactoe.tdd.exception.PositionAlreadyOccupiedException;
+import org.tictactoe.tdd.exception.PositionOutOfRangeException;
 
 public class TicTacToeGameTest {
 	
@@ -37,13 +38,13 @@ public class TicTacToeGameTest {
 	}
 	
 	@Test
-	public void markFirstMoveMadeByPlayerAsX() throws PositionAlreadyOccupiedException {
+	public void markFirstMoveMadeByPlayerAsX() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 	}
 	
 	@Test
-	public void alternativelySwitchBetweenPlayersWhenPlaying() throws PositionAlreadyOccupiedException {
+	public void alternativelySwitchBetweenPlayersWhenPlaying() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		game.play(POS_1, POS_1);
 		assertEquals(PLAYER_X, game.identifyPlayerForGivenLocation(POS_1, POS_1));
 		
@@ -57,13 +58,13 @@ public class TicTacToeGameTest {
 	}
 	
 	@Test
-	public void shouldThrowExceptionIfChoosenAlreadyOccupiedLocation() throws PositionAlreadyOccupiedException {
+	public void shouldThrowExceptionIfChoosenAlreadyOccupiedLocation() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		game.play(POS_1, POS_1);
 		assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
 	}
 	
 	@Test
-	public void checkExceptionMessageIfPositionAlreadyOccupied() throws PositionAlreadyOccupiedException {
+	public void checkExceptionMessageIfPositionAlreadyOccupied() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
 		game.play(POS_1, POS_1);
 		PositionAlreadyOccupiedException exceptionThrown = assertThrows(PositionAlreadyOccupiedException.class, () -> game.play(POS_1, POS_1));
 		assertTrue(exceptionThrown.getMessage().contains("(1, 1)"));
@@ -72,6 +73,11 @@ public class TicTacToeGameTest {
 	@Test
 	public void checkIfTheProvidedPositionIsWithinRange() {
 		assertTrue(game.isPositionWithinRange(POS_1, POS_2));
+	}
+	
+	@Test
+	public void shouldThrowExceptionIfPositionIsOutOfRange() throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		assertThrows(PositionOutOfRangeException.class, () -> game.play(POS_1, 3));
 	}
 
 }

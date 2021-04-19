@@ -1,6 +1,7 @@
 package org.tictactoe.tdd.demo;
 
 import org.tictactoe.tdd.exception.PositionAlreadyOccupiedException;
+import org.tictactoe.tdd.exception.PositionOutOfRangeException;
 
 public class TicTacToeGame {
 
@@ -35,7 +36,11 @@ public class TicTacToeGame {
 		return player;
 	}
 
-	public void play(int row, int column) throws PositionAlreadyOccupiedException {
+	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		if (!isPositionWithinRange(row, column)) {
+			throw new PositionOutOfRangeException("");
+		}
+		
 		if (isPositionAvailableToPlay(row, column)) {
 			currentMove = getNextMove();
 			makeMoveAt(row, column, currentMove);
