@@ -39,16 +39,10 @@ public class TicTacToeGame {
 	}
 
 	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
-		if (!isPositionWithinRange(row, column)) {
-			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of "+POSITION_LOWER_LIMIT+ " and "+ POSITION_UPPER_LIMIT);
-		}
-		
-		if (isPositionAvailableToPlay(row, column)) {
-			currentMove = getNextMove();
-			makeMoveAt(row, column, currentMove);
-		} else {
-			throw new PositionAlreadyOccupiedException("Position ("+row+", "+column+") is already occupied. Please choose a different position");
-		}
+		isConditionsAreValidForPlay(row, column);
+			
+		currentMove = getNextMove();
+		makeMoveAt(row, column, currentMove);
 		
 	}
 	
@@ -60,6 +54,15 @@ public class TicTacToeGame {
 			nextMove = MOVE_X;
 		}
 		return nextMove;
+	}
+	
+	private void isConditionsAreValidForPlay(int row, int column) throws PositionOutOfRangeException, PositionAlreadyOccupiedException {
+		if (!isPositionWithinRange(row, column)) {
+			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of "+POSITION_LOWER_LIMIT+ " and "+ POSITION_UPPER_LIMIT); 
+		}
+		if (!isPositionAvailableToPlay(row, column)) {
+			throw new PositionAlreadyOccupiedException("Position ("+row+", "+column+") is already occupied. Please choose a different position");
+		}
 	}
 
 	public boolean isPositionAvailableToPlay(int row, int column) {
