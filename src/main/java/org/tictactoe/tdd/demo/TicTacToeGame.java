@@ -24,6 +24,33 @@ public class TicTacToeGame {
 	private char currentMove;
 	
 	
+	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
+		isConditionsAreValidForPlay(row, column);
+			
+		currentMove = getNextMove();
+		makeMoveAt(row, column, currentMove);
+		
+	}
+	
+	private void isConditionsAreValidForPlay(int row, int column) throws PositionOutOfRangeException, PositionAlreadyOccupiedException {
+		if (!isPositionWithinRange(row, column)) {
+			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of "+POSITION_LOWER_LIMIT+ " and "+ POSITION_UPPER_LIMIT); 
+		}
+		if (!isPositionAvailableToPlay(row, column)) {
+			throw new PositionAlreadyOccupiedException("Position ("+row+", "+column+") is already occupied. Please choose a different position");
+		}
+	}
+	
+	private char getNextMove() {
+		char nextMove;
+		if (currentMove == MOVE_X) {
+			nextMove = MOVE_O;
+		} else {
+			nextMove = MOVE_X;
+		}
+		return nextMove;
+	}
+	
 	public void makeMoveAt(int row, int column, char playerMove) {
 		gameBoard[row][column] = playerMove;
 	}
@@ -41,33 +68,6 @@ public class TicTacToeGame {
 			player = PLAYER_O;
 		}
 		return player;
-	}
-
-	public void play(int row, int column) throws PositionAlreadyOccupiedException, PositionOutOfRangeException {
-		isConditionsAreValidForPlay(row, column);
-			
-		currentMove = getNextMove();
-		makeMoveAt(row, column, currentMove);
-		
-	}
-	
-	private char getNextMove() {
-		char nextMove;
-		if (currentMove == MOVE_X) {
-			nextMove = MOVE_O;
-		} else {
-			nextMove = MOVE_X;
-		}
-		return nextMove;
-	}
-	
-	private void isConditionsAreValidForPlay(int row, int column) throws PositionOutOfRangeException, PositionAlreadyOccupiedException {
-		if (!isPositionWithinRange(row, column)) {
-			throw new PositionOutOfRangeException("Invalid Position..!! Please select a valid position within range of "+POSITION_LOWER_LIMIT+ " and "+ POSITION_UPPER_LIMIT); 
-		}
-		if (!isPositionAvailableToPlay(row, column)) {
-			throw new PositionAlreadyOccupiedException("Position ("+row+", "+column+") is already occupied. Please choose a different position");
-		}
 	}
 
 	public boolean isPositionAvailableToPlay(int row, int column) {
