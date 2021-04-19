@@ -100,5 +100,13 @@ public class TicTacToeGame {
 		}
 		return isOccupied;
 	}
+
+	public boolean checkIfAnyDiagonalOccupiedBySinglePlayer() {
+		boolean isOccupied = false;
+		if (identifyMoveAt(POS_0, POS_0) != EMPTY && identifyMoveAt(POS_0, POS_0) == identifyMoveAt(POS_1, POS_1) && identifyMoveAt(POS_1, POS_1) == identifyMoveAt(POS_2, POS_2)) {
+			isOccupied = true;
+		}
+		return isOccupied;
+	}
 	
 }
