@@ -78,7 +78,7 @@ public class TicTacToeGame {
 		return (row >=POSITION_LOWER_LIMIT && row <= POSITION_UPPER_LIMIT && column >=POSITION_LOWER_LIMIT && column <= POSITION_UPPER_LIMIT);
 	}
 
-	public boolean checkIfAnyRowOccupiedBySinglePlayer() {
+	public boolean isAnyRowOccupiedBySinglePlayer() {
 		boolean isOccupied = false;
 		for (int i = 0; i < 3; i++) {
 			if (identifyMoveAt(i, POS_0) != EMPTY && identifyMoveAt(i, POS_0) == identifyMoveAt(i, POS_1) && identifyMoveAt(i, POS_1) == identifyMoveAt(i, POS_2)) {
@@ -90,7 +90,7 @@ public class TicTacToeGame {
 		
 	}
 
-	public boolean checkIfAnyColumnOccupiedBySinglePlayer() {
+	public boolean isAnyColumnOccupiedBySinglePlayer() {
 		boolean isOccupied = false;
 		for (int i = 0; i < 3; i++) {
 			if (identifyMoveAt(POS_0, i) != EMPTY && identifyMoveAt(POS_0, i) == identifyMoveAt(POS_1, i) && identifyMoveAt(POS_1, i) == identifyMoveAt(POS_2, i)) {
@@ -101,7 +101,7 @@ public class TicTacToeGame {
 		return isOccupied;
 	}
 
-	public boolean checkIfAnyDiagonalOccupiedBySinglePlayer() {
+	public boolean isAnyDiagonalOccupiedBySinglePlayer() {
 		boolean isOccupied = false;
 		if (identifyMoveAt(POS_0, POS_0) != EMPTY && identifyMoveAt(POS_0, POS_0) == identifyMoveAt(POS_1, POS_1) && identifyMoveAt(POS_1, POS_1) == identifyMoveAt(POS_2, POS_2)) {
 			isOccupied = true;
@@ -113,7 +113,7 @@ public class TicTacToeGame {
 		return isOccupied;
 	}
 
-	public boolean checkIfAllPositionsAreOccupied() {
+	public boolean areAllPositionsOccupied() {
 		boolean isAllPositionOccupied = true;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {

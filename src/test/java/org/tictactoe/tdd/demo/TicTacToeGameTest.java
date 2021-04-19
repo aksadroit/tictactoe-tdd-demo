@@ -93,7 +93,7 @@ public class TicTacToeGameTest {
 		game.play(POS_0, POS_1);
 		game.play(POS_2, POS_1);
 		game.play(POS_0, POS_2);
-		assertTrue(game.checkIfAnyRowOccupiedBySinglePlayer());
+		assertTrue(game.isAnyRowOccupiedBySinglePlayer());
 	}
 	
 	@Test
@@ -103,7 +103,7 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_0);
 		game.play(POS_2, POS_1);
 		game.play(POS_2, POS_0);
-		assertTrue(game.checkIfAnyColumnOccupiedBySinglePlayer());
+		assertTrue(game.isAnyColumnOccupiedBySinglePlayer());
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		game.play(POS_2, POS_1);
 		game.play(POS_2, POS_2);
-		assertTrue(game.checkIfAnyDiagonalOccupiedBySinglePlayer());
+		assertTrue(game.isAnyDiagonalOccupiedBySinglePlayer());
 	}
 	
 	@Test
@@ -124,7 +124,7 @@ public class TicTacToeGameTest {
 		game.play(POS_1, POS_1);
 		game.play(POS_1, POS_2);
 		game.play(POS_0, POS_2);
-		assertTrue(game.checkIfAnyDiagonalOccupiedBySinglePlayer());
+		assertTrue(game.isAnyDiagonalOccupiedBySinglePlayer());
 	}
 	
 	@Test
@@ -138,7 +138,7 @@ public class TicTacToeGameTest {
 		game.play(POS_2, POS_1);
 		game.play(POS_2, POS_0);
 		game.play(POS_2, POS_2);
-		assertTrue(game.checkIfAllPositionsAreOccupied());
+		assertTrue(game.areAllPositionsOccupied());
 	}
 
 }
