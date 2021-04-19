@@ -59,12 +59,8 @@ public class TicTacToeGame {
 		return gameBoard[row][column] == EMPTY;
 	}
 
-	public boolean isPositionWithinRange(int pos1, int pos12) {
-		boolean isValidPosition = true;
-		if (pos1 < 0 || pos1 > 2 || pos12 < 0 || pos12 > 2) {
-			isValidPosition = false;
-		}
-		return isValidPosition;
+	public boolean isPositionWithinRange(int row, int column) {
+		return (row >=0 && row <= 2 && column >=0 && column <= 2);
 	}
 	
 }
