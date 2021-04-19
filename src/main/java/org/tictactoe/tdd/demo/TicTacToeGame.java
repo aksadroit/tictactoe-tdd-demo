@@ -5,6 +5,7 @@ public class TicTacToeGame {
 	private static final int GAME_BOARD_SIZE = 3;
 	private static final char MOVE_X = 'X';
 	private static final char MOVE_O = 'O';
+	private static final char EMPTY = '\0';
 	private static final String PLAYER_X = "Player_X";
 	private static final String PLAYER_O = "Player_O";
 	
@@ -47,12 +48,8 @@ public class TicTacToeGame {
 		return nextMove;
 	}
 
-	public boolean isPositionAvailableToPlay(int pos1, int pos12) {
-		boolean isAvailable = false;
-		if (gameBoard[pos1][pos12] == '\0') {
-			isAvailable = true;
-		}
-		return isAvailable;
+	public boolean isPositionAvailableToPlay(int row, int column) {
+		return gameBoard[row][column] == EMPTY;
 	}
 	
 }
